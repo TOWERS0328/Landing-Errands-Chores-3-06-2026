@@ -1,0 +1,143 @@
+// src/app/components/pricing/pricing.component.scss
+
+.pricing-section {
+    background: var(--color-surface);
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .pricing-card {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-card);
+    padding: 2rem 1.75rem;
+    box-shadow: var(--shadow-card);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: transform .25s, box-shadow .25s;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(108, 99, 255, .15);
+    }
+
+    &.popular {
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 40px rgba(108, 99, 255, .2);
+    }
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+    border-radius: 2rem;
+    padding: .25rem 1rem;
+    font-size: .78rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .plan-header {
+    text-align: center;
+  }
+
+  .plan-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: .5rem;
+  }
+
+  .plan-price {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: .5rem;
+  }
+
+  .plan-desc {
+    font-size: .88rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+  }
+
+  .plan-features {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .9rem;
+      color: var(--color-text);
+      opacity: 1;
+      transform: none;
+
+      i {
+        color: var(--color-primary);
+        font-size: .95rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pricing-card.aos-animate .plan-features li {
+      animation: pricingFeatureIn 0.45s ease both;
+    }
+
+    .pricing-card.aos-animate .plan-features li:nth-child(1) { animation-delay: 0.05s; }
+    .pricing-card.aos-animate .plan-features li:nth-child(2) { animation-delay: 0.1s; }
+    .pricing-card.aos-animate .plan-features li:nth-child(3) { animation-delay: 0.15s; }
+    .pricing-card.aos-animate .plan-features li:nth-child(4) { animation-delay: 0.2s; }
+    .pricing-card.aos-animate .plan-features li:nth-child(5) { animation-delay: 0.25s; }
+    .pricing-card.aos-animate .plan-features li:nth-child(6) { animation-delay: 0.3s; }
+  }
+
+  @keyframes pricingFeatureIn {
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .btn-outline-plan {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 2rem;
+    padding: .6rem 1.75rem;
+    font-weight: 600;
+    background: transparent;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background .2s, color .2s;
+
+    &:hover {
+      background: var(--color-primary);
+      color: var(--color-text-on-primary);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(108, 99, 255, .4);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }

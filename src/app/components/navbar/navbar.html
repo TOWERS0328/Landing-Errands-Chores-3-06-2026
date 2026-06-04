@@ -1,0 +1,49 @@
+<!-- src/app/components/navbar/navbar.component.html -->
+
+<nav class="navbar-custom" [class.scrolled]="isScrolled()">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+  
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-check2-circle logo-icon"></i>
+        <span class="brand-name">Errands<span class="brand-accent">&</span>Chores</span>
+      </a>
+  
+      <!-- Links desktop -->
+      <ul class="nav-links d-none d-md-flex list-unstyled mb-0 gap-4">
+        <li><a (click)="scrollTo('features')">Features</a></li>
+        <li><a (click)="scrollTo('themes')">Themes</a></li>
+        <li><a (click)="scrollTo('pricing')">Pricing</a></li>
+        <li><a (click)="scrollTo('testimonials')">Reviews</a></li>
+      </ul>
+  
+      <!-- CTA desktop -->
+      
+        <button class="btn btn-primary-custom d-none d-md-inline-flex align-items-center gap-2"
+        (click)="scrollTo('cta')"
+        role="button">
+        <i class="bi bi-google-play"></i>
+        Download
+      </button>
+  
+      <!-- Hamburger mobile -->
+      <button class="hamburger d-md-none" (click)="toggleMenu()" aria-label="Toggle menu">
+        <i class="bi" [class.bi-list]="!isMenuOpen()" [class.bi-x-lg]="isMenuOpen()"></i>
+      </button>
+    </div>
+  
+    <!-- Mobile menu -->
+    <div class="mobile-menu" [class.open]="isMenuOpen()">
+      <ul class="list-unstyled mb-0 px-4 py-3 d-flex flex-column gap-3">
+        <li><a (click)="scrollTo('features')">Features</a></li>
+        <li><a (click)="scrollTo('themes')">Themes</a></li>
+        <li><a (click)="scrollTo('pricing')">Pricing</a></li>
+        <li><a (click)="scrollTo('testimonials')">Reviews</a></li>
+        <li>
+          <a class="btn btn-primary-custom w-100 text-center" (click)="scrollTo('cta')" role="button">
+            <i class="bi bi-google-play me-2"></i>Download
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,37 @@
+<!-- src/app/components/features/features.component.html -->
+
+<section class="features-section py-5" id="features">
+    <div class="container">
+  
+      <!-- Header -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Features</span>
+        <h2 class="section-title mt-2">Everything you need</h2>
+        <p class="section-subtitle mt-3">
+          Powerful tools to keep your life organized,
+          built for simplicity and speed.
+        </p>
+      </div>
+  
+      <!-- Grid -->
+      <div class="row g-4">
+        @for (feature of features; track feature.title; let i = $index) {
+          <div
+            class="col-12 col-sm-6 col-lg-4"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 80">
+  
+            <div class="feature-card h-100">
+              <div class="feature-icon" [style.background]="feature.color + '18'">
+                <i class="bi" [ngClass]="feature.icon" [style.color]="feature.color"></i>
+              </div>
+              <h5 class="feature-title mt-3">{{ feature.title }}</h5>
+              <p class="feature-desc mb-0">{{ feature.description }}</p>
+            </div>
+  
+          </div>
+        }
+      </div>
+  
+    </div>
+  </section>

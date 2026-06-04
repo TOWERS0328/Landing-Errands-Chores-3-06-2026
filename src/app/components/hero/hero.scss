@@ -1,0 +1,168 @@
+// src/app/components/hero/hero.component.scss
+
+  .hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-bg) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(81,67,183,.12) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+  }
+
+  .badge-pill {
+    display: inline-block;
+    background: rgba(108, 99, 255, .1);
+    color: var(--color-primary);
+    border-radius: 2rem;
+    padding: .35rem 1rem;
+    font-size: .85rem;
+    font-weight: 600;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--color-text);
+    will-change: transform, opacity;
+  }
+
+  .highlight {
+    color: var(--color-primary);
+    position: relative;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    will-change: transform, opacity;
+  }
+
+  .hero-cta {
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform, box-shadow;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 32px rgba(108, 99, 255, 0.4);
+  }
+
+  .hero-cta:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  // Stats
+  .stat {
+    display: flex;
+    flex-direction: column;
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .stat-label {
+      font-size: .8rem;
+      color: var(--color-text-muted);
+    }
+  }
+
+  // Phone mockup
+  .phone-mockup {
+    width: 280px;
+    height: 540px;
+    background: var(--color-bg-dark);
+    border-radius: 2.5rem;
+    padding: 1.5rem 1rem;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,.25),
+      0 0 0 8px rgba(0,0,0,.06);
+    will-change: transform, filter;
+  }
+
+  .phone-screen {
+    background: var(--color-surface);
+    border-radius: 1.5rem;
+    height: 100%;
+    padding: 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    overflow: hidden;
+  }
+
+  .mock-header {
+    display: flex;
+    flex-direction: column;
+
+    .mock-greeting {
+      font-size: .9rem;
+      color: var(--color-text-muted);
+    }
+    .mock-date {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-text);
+    }
+  }
+
+  .mock-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex: 1;
+  }
+
+  .mock-task {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .85rem;
+    color: var(--color-text);
+    padding: .5rem .75rem;
+    background: var(--color-surface);
+    border-radius: .5rem;
+
+    &.done {
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+
+      i { color: var(--color-primary); }
+    }
+
+    i { font-size: 1rem; color: var(--color-text-muted); }
+  }
+
+  .mock-progress {
+    font-size: .78rem;
+    color: var(--color-text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+  }
+
+  .progress-bar-custom {
+    height: 6px;
+    background: var(--color-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 3px;
+    transition: width .5s ease;
+  }

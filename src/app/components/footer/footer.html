@@ -1,0 +1,70 @@
+
+<footer class="footer-section">
+    <div class="container">
+
+      <div class="footer-grid py-5">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <i class="bi bi-check2-circle brand-icon"></i>
+            <span class="brand-name">Errands<span class="brand-accent">&</span>Chores</span>
+          </div>
+          <p class="brand-desc">
+            The simplest way to organize your daily tasks,
+            household chores, and personal errands.
+          </p>
+          <!-- Google Play badge -->
+          <button class="play-badge mt-3" (click)="onDownload()">
+            <i class="bi bi-google-play"></i>
+            <div class="badge-text">
+              <span class="badge-sub">Get it on</span>
+              <span class="badge-main">Google Play</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="footer-links">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="list-unstyled">
+            @for (link of links; track link.section) {
+              <li>
+                <a (click)="scrollTo(link.section)">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-legal">
+          <h6 class="footer-heading">Legal</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="footer-social">
+          <h6 class="footer-heading">Follow us</h6>
+          <div class="social-icons d-flex gap-3">
+            @for (s of socials; track s.icon) {
+              <a class="social-icon" href="#" [attr.aria-label]="s.label">
+                <i class="bi" [ngClass]="s.icon"></i>
+              </a>
+            }
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center py-3 gap-2">
+        <span>© {{ year }} Errands & Chores. All rights reserved.</span>
+      
+      </div>
+
+    </div>
+  </footer>

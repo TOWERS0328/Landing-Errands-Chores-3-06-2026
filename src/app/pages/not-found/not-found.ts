@@ -1,0 +1,13 @@
+// src/app/pages/not-found/not-found.ts
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-not-found',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './not-found.html',
+  styleUrl: './not-found.scss',
+})
+export class NotFound {}

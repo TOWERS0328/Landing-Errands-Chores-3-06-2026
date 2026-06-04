@@ -1,0 +1,37 @@
+// src/app/pages/not-found/not-found.scss
+
+.notfound-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f7ff 0%, #eef0ff 100%);
+  padding: 2rem;
+}
+
+.notfound-icon {
+  i {
+    font-size: 5rem;
+    color: var(--color-primary);
+    opacity: .8;
+  }
+}
+
+.notfound-code {
+  font-size: clamp(5rem, 20vw, 10rem);
+  font-weight: 900;
+  color: var(--color-primary);
+  line-height: 1;
+  opacity: .15;
+  margin-bottom: -.5rem;
+}
+
+.notfound-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.notfound-sub {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  max-width: 400px;
+  margin-inline: auto;
+}

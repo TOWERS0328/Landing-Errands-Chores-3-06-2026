@@ -1,0 +1,70 @@
+<!-- src/app/components/testimonials/testimonials.component.html -->
+
+<section class="testimonials-section py-5" id="testimonials">
+    <div class="container">
+  
+      <!-- Header -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Reviews</span>
+        <h2 class="section-title mt-2">Loved by thousands</h2>
+        <p class="section-subtitle mt-3">
+          Real people, real results. See what our users say
+          about Errands & Chores.
+        </p>
+      </div>
+  
+      <!-- Cards -->
+      <div class="row g-4 justify-content-center">
+        @for (t of testimonials; track t.name; let i = $index) {
+          <div
+            class="col-12 col-md-6 col-lg-4"
+            data-aos="fade-up"
+            [attr.data-aos-delay]="i * 100">
+  
+            <div class="testimonial-card h-100">
+  
+              <!-- Stars -->
+              <div class="stars mb-3">
+                @for (star of stars(t.rating); track star) {
+                  <i
+                    class="bi"
+                    [ngClass]="star <= t.rating ? 'bi-star-fill' : 'bi-star'">
+                  </i>
+                }
+              </div>
+  
+              <!-- Review -->
+              <p class="review-text">"{{ t.review }}"</p>
+  
+              <!-- Author -->
+              <div class="author d-flex align-items-center gap-3 mt-auto">
+                <div class="avatar">{{ t.avatar }}</div>
+                <div>
+                  <div class="author-name">{{ t.name }}</div>
+                  <div class="author-city">
+                    <i class="bi bi-geo-alt-fill me-1"></i>{{ t.city }}
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+          </div>
+        }
+      </div>
+  
+      <!-- Rating global -->
+      <div class="global-rating text-center mt-5" data-aos="fade-up">
+        <div class="rating-stars">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-half"></i>
+        </div>
+        <p class="rating-text mt-2">
+          <strong>4.8 out of 5</strong> — based on 2,400+ reviews on Google Play
+        </p>
+      </div>
+  
+    </div>
+  </section>

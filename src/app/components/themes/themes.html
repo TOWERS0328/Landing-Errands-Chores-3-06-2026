@@ -1,0 +1,126 @@
+<!-- src/app/components/themes/themes.component.html -->
+
+<section class="themes-section py-5" id="themes">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="section-badge">Personalization</span>
+        <h2 class="section-title mt-2">5 beautiful themes</h2>
+        <p class="section-subtitle mt-3">
+          Make the app yours. Choose a theme that matches your mood
+          and style — new themes unlocked with Premium.
+        </p>
+      </div>
+
+      <!-- Cards -->
+      <div class="themes-grid" data-aos="fade-up" data-aos-delay="100">
+        @for (theme of themes; track theme.id) {
+          <div
+            class="theme-card"
+            [class.active]="activeTheme === theme.id"
+            (click)="setActive(theme.id)">
+
+            <!-- Preview de colores -->
+            <div class="color-preview">
+              @for (color of theme.colors; track color) {
+                <div class="color-dot" [style.background]="color"></div>
+              }
+            </div>
+
+            <!-- Info -->
+            <div class="theme-info">
+              <i class="bi" [ngClass]="theme.icon"></i>
+              <span class="theme-name">{{ theme.name }}</span>
+            </div>
+
+            <!-- Badge premium -->
+            @if (theme.isPremium) {
+              <span class="premium-badge">
+                <i class="bi bi-lock-fill"></i> Premium
+              </span>
+            } @else {
+              <span class="free-badge">Free</span>
+            }
+
+            <!-- Check activo -->
+            @if (activeTheme === theme.id) {
+              <div class="active-check">
+                <i class="bi bi-check-lg"></i>
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Custom theme editor modal -->
+  @if (showCustomEditor) {
+    <div class="custom-modal-backdrop" (click)="closeCustomEditor()">
+      <div class="custom-modal" (click)="$event.stopPropagation()">
+        <header class="custom-modal-header">
+          <div>
+            <span class="custom-badge">Custom Palette</span>
+            <h3>Editar tema personalizado</h3>
+            <p>Selecciona una paleta simple y prueba tu tema instantáneamente.</p>
+          </div>
+          <button class="close-btn" type="button" aria-label="Cerrar" (click)="closeCustomEditor()">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </header>
+
+        <div class="custom-modal-grid">
+          <label class="input-group">
+            <span>Primary</span>
+            <input type="color" [(ngModel)]="customPalette.primary" aria-label="Primary color" />
+          </label>
+          <label class="input-group">
+            <span>Background</span>
+            <input type="color" [(ngModel)]="customPalette.bg" aria-label="Background color" />
+          </label>
+          <label class="input-group">
+            <span>Surface</span>
+            <input type="color" [(ngModel)]="customPalette.surface" aria-label="Surface color" />
+          </label>
+          <label class="input-group">
+            <span>Text</span>
+            <input type="color" [(ngModel)]="customPalette.text" aria-label="Text color" />
+          </label>
+          <label class="input-group">
+            <span>Text Muted</span>
+            <input type="color" [(ngModel)]="customPalette.textMuted" aria-label="Text muted color" />
+          </label>
+        </div>
+
+        <section class="custom-preview">
+          <div class="preview-card" [ngStyle]="previewStyles">
+            <div class="preview-title">Previsualización</div>
+            <p>Así se verá tu texto y botones con esta paleta.</p>
+            <div class="preview-actions">
+              <span class="preview-pill" [ngStyle]="{'background': customPreview?.primary || customPalette.primary, 'color': getContrastText((customPreview?.primary || customPalette.primary) || '#000000')}">Etiqueta</span>
+              <button class="preview-btn" [ngStyle]="previewButtonStyles">Botón primario</button>
+            </div>
+          </div>
+          <p class="preview-note" *ngIf="pendingCustomChanges">Vista previa aplicada. Presiona Guardar para aplicar el tema a toda la landing.</p>
+        </section>
+
+        <div class="actions">
+          <button class="btn btn-ghost" (click)="closeCustomEditor()">Cancelar</button>
+          <button class="btn btn-secondary" (click)="applyCustomPreview()">Aplicar</button>
+          <button class="btn btn-primary" (click)="saveCustomTheme()">Guardar</button>
+        </div>
+
+        <div class="confirm-overlay" *ngIf="showConfirmDiscard">
+          <div class="confirm-dialog">
+            <p>Hay cambios sin guardar. ¿Deseas salir sin guardar el tema personalizado?</p>
+            <div class="confirm-actions">
+              <button class="btn btn-secondary" (click)="cancelDiscard()">Seguir editando</button>
+              <button class="btn btn-danger" (click)="confirmDiscardChanges()">Salir sin guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }

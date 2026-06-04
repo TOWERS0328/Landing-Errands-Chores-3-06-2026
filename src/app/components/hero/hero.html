@@ -1,0 +1,86 @@
+<!-- src/app/components/hero/hero.component.html -->
+
+<section class="hero-section d-flex align-items-center" id="hero">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <!-- Texto -->
+        <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+          <span class="badge-pill mb-3 hero-badge">
+            <i class="bi bi-stars me-1"></i> #1 Task Manager App
+          </span>
+          <h1 class="hero-title">
+            Stay on top of every<br>
+            <span class="highlight">errand & chore</span>
+          </h1>
+          <p class="hero-sub mt-3 mb-4">
+            The simplest way to organize your daily tasks, household chores,
+            and personal errands — all in one beautiful app.
+          </p>
+
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+            <button class="btn btn-primary-custom btn-lg d-flex align-items-center gap-2 hero-cta" (click)="onDownload()">
+              <i class="bi bi-google-play"></i>
+              Get it on Google Play
+            </button>
+            <!-- <a class="btn btn-outline-secondary btn-lg" href="#features" (click)="$event.preventDefault(); scrollToSection('features')"> -->
+            <!-- Learn more <i class="bi bi-arrow-down ms-1"></i>
+            </button> -->
+            <!-- </div> -->
+          </div>
+
+          <!-- Stats -->
+          <div class="hero-stats d-flex gap-4 mt-5 justify-content-center justify-content-lg-start">
+            <div class="stat">
+              <span class="stat-number" data-target="50">50K+</span>
+              <span class="stat-label">Downloads</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="4.8">4.8★</span>
+              <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="5">5</span>
+              <span class="stat-label">Themes</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mockup -->
+        <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-left" data-aos-delay="150">
+          <div class="phone-mockup hero-phone-mockup">
+            <div class="phone-screen">
+              <div class="mock-header">
+                <span class="mock-greeting">Good morning 👋</span>
+                <span class="mock-date">Today's Tasks</span>
+              </div>
+              <div class="mock-tasks">
+                <div class="mock-task done">
+                  <i class="bi bi-check-circle-fill"></i> Buy groceries
+                </div>
+                <div class="mock-task done">
+                  <i class="bi bi-check-circle-fill"></i> Pay electricity bill
+                </div>
+                <div class="mock-task">
+                  <i class="bi bi-circle"></i> Pick up dry cleaning
+                </div>
+                <div class="mock-task">
+                  <i class="bi bi-circle"></i> Call the plumber
+                </div>
+                <div class="mock-task">
+                  <i class="bi bi-circle"></i> Walk the dog
+                </div>
+              </div>
+              <div class="mock-progress">
+                <span>2 of 5 done</span>
+                <div class="progress-bar-custom">
+                  <div class="progress-fill" style="width: 40%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
