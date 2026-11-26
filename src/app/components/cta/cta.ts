@@ -14,7 +14,7 @@ import { AppDownload } from '../../core/services/app-download';
 export class Cta {
   private readonly appDownload = inject(AppDownload);
 
-  onDownload(): void {
-    this.appDownload.download();
+  onOpenApp(): void {
+    this.appDownload.openApp();
   }
 }

@@ -20,10 +20,13 @@
         <button
           type="button"
           class="btn btn-light btn-lg d-inline-flex align-items-center gap-2 px-5"
-          (click)="onDownload()">
-          <i class="bi bi-download"></i>
+          (click)="onOpenApp()">
+          <i class="bi bi-box-arrow-up-right"></i>
           Get the app
         </button>
+        <p class="cta-note mt-3 mb-0">
+          Runs in your browser and installs on Android, iPhone or computer. No app store needed.
+        </p>
   
         <!-- Badges info -->
         <div class="cta-badges d-flex justify-content-center gap-4 mt-4">
@@ -32,8 +35,8 @@
             <span>Free</span>
           </div>
           <div class="cta-badge">
-            <i class="bi bi-fingerprint"></i>
-            <span>Biometric lock</span>
+            <i class="bi bi-wifi-off"></i>
+            <span>Works offline</span>
           </div>
           <div class="cta-badge">
             <i class="bi bi-slash-circle"></i>
