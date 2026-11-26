@@ -76,10 +76,10 @@ export class AppPreview implements AfterViewInit {
       description: 'Make it yours',
       accent: '#8B5CF6',
       tasks: [
-        { text: 'Violet Dream — Active', done: true },
-        { text: 'Ocean Breeze 🔒', done: false },
-        { text: 'Forest Calm 🔒', done: false },
-        { text: 'Midnight Dark 🔒', done: false },
+        { text: 'Light — Active', done: true },
+        { text: 'Dark', done: false },
+        { text: 'Rosé', done: false },
+        { text: 'Your own palette', done: false },
       ],
     },
   ];

@@ -1,8 +1,10 @@
 // src/app/components/footer/footer.component.scss
 
 .footer-section {
+    --footer-text: #F3F4F6;
+    --footer-muted: rgba(243, 244, 246, 0.65);
     background: var(--color-bg-dark);
-    color: var(--color-text);
+    color: var(--footer-text);
   }
 
   .footer-grid {
@@ -11,11 +13,7 @@
     gap: 2.5rem;
 
     @media (min-width: 576px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 992px) {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
     }
   }
 
@@ -28,7 +26,7 @@
   .brand-name {
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--footer-text);
   }
 
   .brand-accent {
@@ -39,7 +37,7 @@
   .brand-desc {
     font-size: .88rem;
     line-height: 1.6;
-    color: var(--color-text-muted);
+    color: var(--footer-muted);
     max-width: 260px;
   }
 
@@ -48,17 +46,17 @@
     display: inline-flex;
     align-items: center;
     gap: .6rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    background: var(--color-primary);
+    border: none;
     border-radius: .75rem;
-    padding: .6rem 1rem;
-    color: var(--color-text);
+    padding: .6rem 1.1rem;
+    color: var(--color-text-on-primary);
     cursor: pointer;
     transition: background .2s;
 
     i { font-size: 1.4rem; }
 
-    &:hover { background: var(--color-primary); color: var(--color-text-on-primary); }
+    &:hover { background: var(--color-primary-dark); }
   }
 
   .badge-text {
@@ -70,7 +68,7 @@
 
   .badge-sub {
     font-size: .68rem;
-    color: rgba(255,255,255,.6);
+    opacity: .8;
   }
 
   .badge-main {
@@ -80,7 +78,7 @@
 
   // Links
   .footer-heading {
-    color: var(--color-text);
+    color: var(--footer-text);
     font-size: .82rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -88,10 +86,9 @@
     margin-bottom: 1rem;
   }
 
-  .footer-links a,
-  .footer-legal a {
+  .footer-links a {
     display: block;
-    color: var(--color-text-muted);
+    color: var(--footer-muted);
     text-decoration: none;
     font-size: .88rem;
     margin-bottom: .5rem;
@@ -105,31 +102,9 @@
     }
   }
 
-  // Social
-  .social-icon {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
-    font-size: 1rem;
-    text-decoration: none;
-    transition: transform .25s cubic-bezier(0.34, 1.56, 0.64, 1), background .2s ease;
-
-    &:hover {
-      transform: translateY(-4px) scale(1.15);
-      background: rgba(108, 99, 255, 0.15);
-      color: var(--color-text);
-    }
-  }
-
   // Bottom
   .footer-bottom {
     border-top: 1px solid var(--color-border);
     font-size: .82rem;
-    color: var(--color-text-muted);
+    color: var(--footer-muted);
   }

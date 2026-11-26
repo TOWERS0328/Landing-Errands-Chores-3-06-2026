@@ -7,8 +7,6 @@ import { Hero } from '../../components/hero/hero';
 import { Themes } from '../../components/themes/themes';
 import { Features } from '../../components/features/features';
 import { AppPreview } from '../../components/app-preview/app-preview';
-import { Pricing } from '../../components/pricing/pricing';
-import { Testimonials } from '../../components/testimonials/testimonials';
 import { Cta } from '../../components/cta/cta';
 import { Footer } from '../../components/footer/footer';
 import { LandingAnimations } from '../../core/services/landing-animations';
@@ -23,8 +21,6 @@ import { LandingAnimations } from '../../core/services/landing-animations';
     Themes,
     Features,
     AppPreview,
-    Pricing,
-    Testimonials,
     Cta,
     Footer,
   ],

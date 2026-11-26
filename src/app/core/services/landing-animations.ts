@@ -57,10 +57,6 @@ export class LandingAnimations {
         el.classList.add('aos-animate');
       }
     });
-
-    document.querySelectorAll('.pricing-card[data-aos]:not(.aos-animate)').forEach((el) => {
-      el.classList.add('aos-animate');
-    });
   }
 
   private initHeroGsap(): void {

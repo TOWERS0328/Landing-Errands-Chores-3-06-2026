@@ -17,15 +17,7 @@ export class Footer {
   readonly links = [
     { label: 'Features', section: 'features' },
     { label: 'Themes', section: 'themes' },
-    { label: 'Pricing', section: 'pricing' },
-    { label: 'Reviews', section: 'testimonials' },
-  ];
-
-  readonly socials = [
-    { icon: 'bi-twitter-x', label: 'Twitter' },
-    { icon: 'bi-instagram', label: 'Instagram' },
-    { icon: 'bi-facebook', label: 'Facebook' },
-    { icon: 'bi-github', label: 'GitHub' },
+    { label: 'Preview', section: 'preview' },
   ];
 
   scrollTo(sectionId: string): void {

@@ -21,39 +21,39 @@ export class Features {
   readonly features: Feature[] = [
     {
       icon: 'bi-check2-square',
-      title: 'Smart Task Lists',
-      description: 'Create, organize and prioritize tasks with intuitive drag-and-drop.',
+      title: 'Tasks, tags & priorities',
+      description: 'Create tasks, label them with tags and set a priority so the important stuff comes first.',
       color: '#6C63FF',
     },
     {
       icon: 'bi-bell-fill',
-      title: 'Smart Reminders',
-      description: 'Never miss a chore. Get timely notifications for every task.',
+      title: 'Reminders',
+      description: 'Get a notification when a task is due. High-priority tasks remind you again so nothing slips.',
       color: '#F97316',
     },
     {
-      icon: 'bi-palette-fill',
-      title: '5 Custom Themes',
-      description: 'Personalize your experience with beautiful color themes.',
-      color: '#8B5CF6',
-    },
-    {
-      icon: 'bi-arrow-repeat',
-      title: 'Recurring Tasks',
-      description: 'Set daily, weekly or monthly chores that repeat automatically.',
+      icon: 'bi-calendar3',
+      title: 'Calendar & Google Calendar',
+      description: 'See your tasks by day and sync them with your Google Calendar.',
       color: '#0EA5E9',
     },
     {
-      icon: 'bi-cloud-check-fill',
-      title: 'Cloud Sync',
-      description: 'Your tasks stay in sync across all your devices in real time.',
+      icon: 'bi-graph-up-arrow',
+      title: 'Stats & streaks',
+      description: 'Track what you get done each week and keep your streak going.',
       color: '#22C55E',
     },
     {
-      icon: 'bi-graph-up-arrow',
-      title: 'Progress Tracking',
-      description: 'Visualize your productivity with weekly stats and streaks.',
+      icon: 'bi-grid-1x2-fill',
+      title: 'Home screen widgets',
+      description: "Check today's tasks, your summary and your streak without opening the app.",
       color: '#EC4899',
+    },
+    {
+      icon: 'bi-palette-fill',
+      title: 'Themes & your own palette',
+      description: 'Pick one of five themes or build your own palette. Available in English and Español.',
+      color: '#8B5CF6',
     },
   ];
 }

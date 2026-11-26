@@ -14,12 +14,11 @@
             The simplest way to organize your daily tasks,
             household chores, and personal errands.
           </p>
-          <!-- Google Play badge -->
-          <button class="play-badge mt-3" (click)="onDownload()">
-            <i class="bi bi-android2"></i>
+          <button type="button" class="play-badge mt-3" (click)="onDownload()">
+            <i class="bi bi-download"></i>
             <div class="badge-text">
-              <span class="badge-sub">Download for</span>
-              <span class="badge-main">Android</span>
+              <span class="badge-sub">Get the</span>
+              <span class="badge-main">App</span>
             </div>
           </button>
         </div>
@@ -36,27 +35,6 @@
           </ul>
         </div>
 
-        <!-- Legal -->
-        <div class="footer-legal">
-          <h6 class="footer-heading">Legal</h6>
-          <ul class="list-unstyled">
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-          </ul>
-        </div>
-
-        <!-- Redes sociales -->
-        <div class="footer-social">
-          <h6 class="footer-heading">Follow us</h6>
-          <div class="social-icons d-flex gap-3">
-            @for (s of socials; track s.icon) {
-              <a class="social-icon" href="#" [attr.aria-label]="s.label">
-                <i class="bi" [ngClass]="s.icon"></i>
-              </a>
-            }
-          </div>
-        </div>
 
       </div>
 

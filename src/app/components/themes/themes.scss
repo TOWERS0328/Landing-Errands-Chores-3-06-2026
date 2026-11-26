@@ -79,26 +79,6 @@
     font-size: .9rem;
   }
 
-  .premium-badge {
-    font-size: .72rem;
-    background: var(--color-primary);
-    color: var(--color-text-on-primary);
-    border-radius: 1rem;
-    padding: .2rem .6rem;
-    font-weight: 600;
-    width: fit-content;
-  }
-
-  .free-badge {
-    font-size: .72rem;
-    background: var(--color-success);
-    color: var(--color-text-on-primary);
-    border-radius: 1rem;
-    padding: .2rem .6rem;
-    font-weight: 600;
-    width: fit-content;
-  }
-
   .active-check {
     position: absolute;
     top: .75rem;

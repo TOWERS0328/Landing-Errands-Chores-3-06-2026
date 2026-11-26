@@ -28,7 +28,6 @@ interface Theme {
   name: string;
   colors: string[];
   icon: string;
-  isPremium: boolean;
   vars: ThemeVars;
 }
 
@@ -41,13 +40,12 @@ interface Theme {
 })
 export class Themes implements OnInit {
   readonly themes: Theme[] = [
-    // 1) LIGHT - Free (default)
+    // 1) LIGHT
     {
       id: 'light',
       name: 'Light',
       colors: ['#FFFFFF', '#534AB7', '#34C759'],
       icon: 'bi-sun',
-      isPremium: false,
       vars: {
         primary: '#534AB7',
         primaryDark: '#41349a',
@@ -63,13 +61,12 @@ export class Themes implements OnInit {
         link: '#534AB7',
       },
     },
-    // 2) DARK - Premium
+    // 2) DARK
     {
       id: 'dark',
       name: 'Dark',
       colors: ['#0E0E0E', '#7F77DD', '#34C759'],
       icon: 'bi-moon',
-      isPremium: true,
       vars: {
         primary: '#7F77DD',
         primaryDark: '#6b63c9',
@@ -85,13 +82,12 @@ export class Themes implements OnInit {
         link: '#A99FF8',
       },
     },
-    // 3) ROSÉ - Premium
+    // 3) ROSÉ
     {
       id: 'rose',
       name: 'Rosé',
       colors: ['#4C1D3D', '#DC586D', '#F7E6EA'],
       icon: 'bi-heart',
-      isPremium: true,
       vars: {
         primary: '#DC586D',
         primaryDark: '#b94556',
@@ -107,13 +103,12 @@ export class Themes implements OnInit {
         link: '#FF7A95',
       },
     },
-    // 4) FOREST - Premium
+    // 4) FOREST
     {
       id: 'forest',
       name: 'Forest',
       colors: ['#0F2B1E', '#3C6848', '#CFEBD7'],
       icon: 'bi-tree',
-      isPremium: true,
       vars: {
         primary: '#3C6848',
         primaryDark: '#32583f',
@@ -129,13 +124,12 @@ export class Themes implements OnInit {
         link: '#7FC7A8',
       },
     },
-    // 5) LATTE - Premium
+    // 5) LATTE
     {
       id: 'latte',
       name: 'Latte',
       colors: ['#E8B8B4', '#901C22', '#6B3A2A'],
       icon: 'bi-cup',
-      isPremium: true,
       vars: {
         primary: '#901C22',
         primaryDark: '#6f1418',
@@ -151,13 +145,12 @@ export class Themes implements OnInit {
         link: '#7A1B1F',
       },
     },
-    // 6) CUSTOM - Paid: user-provided palette (defaults shown)
+    // 6) CUSTOM - user-provided palette (defaults shown)
     {
       id: 'custom',
       name: 'Custom Palette',
       colors: [],
       icon: 'bi-palette',
-      isPremium: true,
       vars: {
         primary: '#534AB7',
         primaryDark: '#41349a',

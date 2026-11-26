@@ -6,10 +6,10 @@
       <!-- Header -->
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="section-badge">Personalization</span>
-        <h2 class="section-title mt-2">5 beautiful themes</h2>
+        <h2 class="section-title mt-2">Make it yours</h2>
         <p class="section-subtitle mt-3">
-          Make the app yours. Choose a theme that matches your mood
-          and style — new themes unlocked with Premium.
+          Five themes plus your own custom palette.
+          Tap one to try it on this page.
         </p>
       </div>
 
@@ -33,15 +33,6 @@
               <i class="bi" [ngClass]="theme.icon"></i>
               <span class="theme-name">{{ theme.name }}</span>
             </div>
-
-            <!-- Badge premium -->
-            @if (theme.isPremium) {
-              <span class="premium-badge">
-                <i class="bi bi-lock-fill"></i> Premium
-              </span>
-            } @else {
-              <span class="free-badge">Free</span>
-            }
 
             <!-- Check activo -->
             @if (activeTheme === theme.id) {
