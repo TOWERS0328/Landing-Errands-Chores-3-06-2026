@@ -1,9 +1,8 @@
 // src/app/components/footer/footer.component.ts
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-declare const Swal: any;
+import { AppDownload } from '../../core/services/app-download';
 
 @Component({
   selector: 'app-footer',
@@ -33,13 +32,9 @@ export class Footer {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  private readonly appDownload = inject(AppDownload);
+
   onDownload(): void {
-    Swal.fire({
-      icon: 'success',
-      title: 'Coming soon! 🎉',
-      text: 'The app will be available on Google Play very soon.',
-      confirmButtonColor: '#6C63FF',
-      confirmButtonText: 'Got it!',
-    });
+    this.appDownload.download();
   }
 }

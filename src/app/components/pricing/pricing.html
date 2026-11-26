@@ -49,7 +49,8 @@
               class="btn w-100 mt-auto"
               [class.btn-primary-custom]="plan.isPopular"
               [class.btn-outline-plan]="!plan.isPopular"
-              (click)="onSelect(plan.name)">
+              type="button"
+              (click)="onSelect()">
               {{ plan.ctaLabel }}
             </button>
   

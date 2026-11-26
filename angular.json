@@ -30,7 +30,13 @@
               }
             ],
             "styles": [
+              "node_modules/aos/dist/aos.css",
               "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/gsap/dist/gsap.min.js",
+              "node_modules/gsap/dist/ScrollTrigger.min.js",
+              "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {
@@ -47,7 +53,10 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "security": {
+                "autoCsp": true
+              }
             },
             "development": {
               "optimization": false,

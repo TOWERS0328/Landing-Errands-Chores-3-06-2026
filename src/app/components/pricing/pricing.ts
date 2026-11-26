@@ -4,8 +4,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PricingService } from '../../core/services/pricing';
 import { CurrencyFormatPipe } from '../../shared/pipes/currency-format-pipe';
-
-declare const Swal: any;
+import { AppDownload } from '../../core/services/app-download';
 
 @Component({
   selector: 'app-pricing',
@@ -18,23 +17,10 @@ export class Pricing {
   private pricingService = inject(PricingService);
   readonly plans = this.pricingService.plans;
 
-  onSelect(planName: string): void {
-    if (planName === 'Free') {
-      Swal.fire({
-        icon: 'info',
-        title: 'Free Plan',
-        text: 'Download the app to get started for free!',
-        confirmButtonColor: '#6C63FF',
-        confirmButtonText: 'Download now',
-      });
-    } else {
-      Swal.fire({
-        icon: 'success',
-        title: 'Great choice! 🎉',
-        text: 'Premium unlocks all themes, unlimited tasks and more.',
-        confirmButtonColor: '#6C63FF',
-        confirmButtonText: 'Get Premium',
-      });
-    }
+  private readonly appDownload = inject(AppDownload);
+
+  /** Todos los planes se activan dentro de la app, así que el CTA la descarga. */
+  onSelect(): void {
+    this.appDownload.download();
   }
 }
