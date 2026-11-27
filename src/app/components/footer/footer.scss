@@ -18,9 +18,10 @@
   }
 
   // Brand
-  .brand-icon {
-    font-size: 1.6rem;
-    color: var(--color-primary);
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
   }
 
   .brand-name {

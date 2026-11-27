@@ -18,9 +18,10 @@
     }
   }
 
-  .logo-icon {
-    color: var(--color-primary);
-    font-size: 1.35rem;
+  .logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 
   @keyframes slideDown {
