@@ -1,76 +1,55 @@
 <!-- src/app/components/app-preview/app-preview.component.html -->
 
 <section class="preview-section py-5" id="preview">
-    <div class="container">
-  
-      <!-- Header -->
-      <div class="text-center mb-5" data-aos="fade-up">
-        <span class="section-badge-light">App Preview</span>
-        <h2 class="section-title text-white mt-2">See it in action</h2>
-        <p class="section-subtitle text-white-50 mt-3">
-          Four powerful screens, one seamless experience.
-        </p>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="section-badge-light">App Preview</span>
+      <h2 class="section-title text-white mt-2">See it in action</h2>
+      <p class="section-subtitle text-white-50 mt-3">
+        Real screens from the app. Pick one to take a look.
+      </p>
+    </div>
+
+    <div class="preview-layout" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- Pestañas -->
+      <div class="preview-tabs" role="tablist" aria-label="App screens">
+        @for (s of screens; track s.id; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            class="tab-btn"
+            [class.active]="active === i"
+            [attr.aria-selected]="active === i"
+            (click)="setActive(i)">
+            <i class="bi" [ngClass]="s.icon"></i>
+            <span class="tab-text">
+              <span class="tab-label">{{ s.label }}</span>
+              <span class="tab-desc">{{ s.description }}</span>
+            </span>
+          </button>
+        }
       </div>
-  
-      <div class="preview-layout" data-aos="fade-up" data-aos-delay="100">
-  
-        <!-- Tabs -->
-        <div class="preview-tabs">
-          @for (s of screenshots; track s.id; let i = $index) {
-            <button
-              class="tab-btn"
-              [class.active]="active === i"
-              [style.--accent]="s.accent"
-              (click)="setActive(i)">
-              <i class="bi" [ngClass]="s.icon"></i>
-              <span>{{ s.label }}</span>
-            </button>
-          }
-        </div>
-  
-        <!-- Phone mockup -->
-        <div class="phone-wrapper">
-          <div class="phone-frame">
-            <div class="phone-screen" [style.--accent]="screenshots[active].accent">
-  
-              <!-- Screen header -->
-              <div class="screen-header">
-                <i class="bi" [ngClass]="screenshots[active].icon"></i>
-                <div>
-                  <div class="screen-label">{{ screenshots[active].label }}</div>
-                  <div class="screen-desc">{{ screenshots[active].description }}</div>
-                </div>
-              </div>
-  
-              <!-- Task list -->
-              <div class="screen-tasks">
-                @for (task of screenshots[active].tasks; track task.text) {
-                  <div class="screen-task" [class.done]="task.done">
-                    <i class="bi" [ngClass]="task.done ? 'bi-check-circle-fill' : 'bi-circle'"></i>
-                    <span>{{ task.text }}</span>
-                  </div>
-                }
-              </div>
-  
-              <!-- Progress bar -->
-              <div class="screen-footer">
-                <span class="footer-label">
-                  {{ screenshots[active].tasks | completedCount }} of
-                  {{ screenshots[active].tasks.length }} done
-                </span>
-                <div class="mini-progress">
-                  <div
-                    class="mini-fill"
-                    [style.width.%]="(screenshots[active].tasks | completedCount) /
-                                     screenshots[active].tasks.length * 100">
-                  </div>
-                </div>
-              </div>
-  
-            </div>
+
+      <!-- Dispositivo: todas las capturas cargadas, se cambia con un fundido -->
+      <div class="phone-wrapper">
+        <div class="device phone-frame">
+          <div class="device-screen">
+            @for (s of screens; track s.id; let i = $index) {
+              <img
+                [src]="s.image"
+                [alt]="s.alt"
+                [class.visible]="active === i"
+                [attr.aria-hidden]="active !== i"
+                width="390" height="844"
+                loading="lazy" decoding="async">
+            }
           </div>
         </div>
-  
       </div>
+
     </div>
-  </section>
+  </div>
+</section>

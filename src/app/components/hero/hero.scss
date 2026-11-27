@@ -79,90 +79,38 @@
     }
   }
 
-  // Phone mockup
-  .phone-mockup {
-    width: 280px;
-    height: 540px;
-    background: var(--color-bg-dark);
-    border-radius: 2.5rem;
-    padding: 1.5rem 1rem;
-    box-shadow:
-      0 30px 80px rgba(0,0,0,.25),
-      0 0 0 8px rgba(0,0,0,.06);
-    will-change: transform, filter;
-  }
-
-  .phone-screen {
-    background: var(--color-surface);
-    border-radius: 1.5rem;
-    height: 100%;
-    padding: 1.25rem 1rem;
+  // Capturas de la app
+  .hero-devices {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    height: 620px;
     display: flex;
-    flex-direction: column;
-    gap: .75rem;
-    overflow: hidden;
-  }
-
-  .mock-header {
-    display: flex;
-    flex-direction: column;
-
-    .mock-greeting {
-      font-size: .9rem;
-      color: var(--color-text-muted);
-    }
-    .mock-date {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-text);
-    }
-  }
-
-  .mock-tasks {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    flex: 1;
-  }
-
-  .mock-task {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: .5rem;
-    font-size: .85rem;
-    color: var(--color-text);
-    padding: .5rem .75rem;
-    background: var(--color-surface);
-    border-radius: .5rem;
 
-    &.done {
-      color: var(--color-text-muted);
-      text-decoration: line-through;
-
-      i { color: var(--color-primary); }
+    .device-front {
+      position: relative;
+      z-index: 2;
+      transform: translateX(40px);
     }
 
-    i { font-size: 1rem; color: var(--color-text-muted); }
-  }
+    .device-back {
+      position: absolute;
+      z-index: 1;
+      width: 250px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-46%) rotate(-7deg);
+      opacity: 0.95;
+    }
 
-  .mock-progress {
-    font-size: .78rem;
-    color: var(--color-text-muted);
-    display: flex;
-    flex-direction: column;
-    gap: .35rem;
-  }
+    /* En pantallas angostas, un solo teléfono centrado (el de atrás quedaría cortado) */
+    @media (max-width: 575.98px) {
+      height: auto;
+      width: auto;
 
-  .progress-bar-custom {
-    height: 6px;
-    background: var(--color-border);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: var(--color-primary);
-    border-radius: 3px;
-    transition: width .5s ease;
+      .device-front { width: 250px; transform: none; }
+      .device-back { display: none; }
+    }
   }

@@ -1,132 +1,64 @@
 // src/app/components/app-preview/app-preview.component.ts
 
-import { AfterViewInit, Component, Pipe, PipeTransform } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-declare const gsap: any;
-
-interface Screenshot {
-  id: number;
+interface AppScreen {
+  id: string;
   label: string;
-  icon: string;
   description: string;
-  tasks: { text: string; done: boolean }[];
-  accent: string;
-}
-
-@Pipe({ name: 'completedCount', standalone: true })
-export class CompletedCountPipe implements PipeTransform {
-  transform(tasks: { done: boolean }[]): number {
-    return tasks.filter((t) => t.done).length;
-  }
+  icon: string;
+  image: string;
+  alt: string;
 }
 
 @Component({
   selector: 'app-app-preview',
   standalone: true,
-  imports: [CommonModule, CompletedCountPipe],
+  imports: [CommonModule],
   templateUrl: './app-preview.html',
   styleUrl: './app-preview.scss',
 })
-export class AppPreview implements AfterViewInit {
-  readonly screenshots: Screenshot[] = [
+export class AppPreview {
+  /** Capturas reales de la PWA (public/screens). */
+  readonly screens: AppScreen[] = [
     {
-      id: 1,
-      label: 'Dashboard',
-      icon: 'bi-grid-fill',
-      description: 'All your tasks at a glance',
-      accent: '#6C63FF',
-      tasks: [
-        { text: 'Buy groceries', done: true },
-        { text: 'Pay bills', done: true },
-        { text: 'Walk the dog', done: false },
-        { text: 'Call dentist', done: false },
-      ],
+      id: 'tasks',
+      label: 'Tasks',
+      description: 'Priorities, due dates and swipe actions',
+      icon: 'bi-list-check',
+      image: 'screens/tasks.webp',
+      alt: 'Task list with priorities and due dates',
     },
     {
-      id: 2,
-      label: 'Reminders',
-      icon: 'bi-bell-fill',
-      description: 'Never miss what matters',
-      accent: '#F97316',
-      tasks: [
-        { text: '9:00 AM — Morning run', done: true },
-        { text: '12:00 PM — Lunch prep', done: false },
-        { text: '6:00 PM — Gym session', done: false },
-        { text: '9:00 PM — Read 30 min', done: false },
-      ],
+      id: 'calendar',
+      label: 'Calendar',
+      description: 'Your month at a glance, plus history',
+      icon: 'bi-calendar3',
+      image: 'screens/calendar.webp',
+      alt: 'Monthly calendar with tasks per day and task history',
     },
     {
-      id: 3,
-      label: 'Progress',
+      id: 'stats',
+      label: 'Stats',
+      description: 'Streaks, weekly chart and completion rate',
       icon: 'bi-graph-up-arrow',
-      description: 'Track your productivity',
-      accent: '#22C55E',
-      tasks: [
-        { text: 'Monday  — 8/8 tasks ✅', done: true },
-        { text: 'Tuesday — 6/7 tasks ✅', done: true },
-        { text: 'Wednesday — 4/6 tasks', done: false },
-        { text: 'Thursday — 2/5 tasks', done: false },
-      ],
+      image: 'screens/stats.webp',
+      alt: 'Productivity stats with streak, weekly chart and completion rate',
     },
     {
-      id: 4,
+      id: 'themes',
       label: 'Themes',
+      description: 'Five themes, from light to Rosé',
       icon: 'bi-palette-fill',
-      description: 'Make it yours',
-      accent: '#8B5CF6',
-      tasks: [
-        { text: 'Light — Active', done: true },
-        { text: 'Dark', done: false },
-        { text: 'Rosé', done: false },
-        { text: 'Your own palette', done: false },
-      ],
+      image: 'screens/rose.webp',
+      alt: 'Task list in the Rosé theme',
     },
   ];
 
   active = 0;
 
-  ngAfterViewInit(): void {
-    if (typeof gsap !== 'undefined') {
-      gsap.to('.preview-section .phone-frame', {
-        y: -8,
-        duration: 3,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        delay: 1,
-        willChange: 'transform',
-      });
-    }
-  }
-
   setActive(i: number): void {
-    if (this.active === i || typeof gsap === 'undefined') {
-      this.active = i;
-      return;
-    }
-
-    const phoneFrame = document.querySelector('.preview-section .phone-frame');
-    if (!phoneFrame) {
-      this.active = i;
-      return;
-    }
-
-    gsap.to(phoneFrame, {
-      opacity: 0,
-      x: 20,
-      duration: 0.2,
-      onComplete: () => {
-        this.active = i;
-        requestAnimationFrame(() => {
-          const nextFrame = document.querySelector('.preview-section .phone-frame');
-          gsap.fromTo(
-            nextFrame || phoneFrame,
-            { opacity: 0, x: -20 },
-            { opacity: 1, x: 0, duration: 0.35, ease: 'power2.out' }
-          );
-        });
-      },
-    });
+    this.active = i;
   }
 }

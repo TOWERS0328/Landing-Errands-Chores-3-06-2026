@@ -90,21 +90,6 @@ export class LandingAnimations {
       willChange: 'transform',
     });
 
-    gsap.to('.hero-phone-mockup', {
-      filter: 'drop-shadow(0 30px 40px rgba(108,99,255,0.25))',
-      duration: 2.5,
-      ease: 'power1.inOut',
-      yoyo: true,
-      repeat: -1,
-    });
-
-    gsap.from('.mock-task', {
-      x: -20,
-      opacity: 0,
-      duration: 0.4,
-      stagger: 0.12,
-      delay: 1.2,
-    });
   }
 
   private initScrollSectionGsap(): void {

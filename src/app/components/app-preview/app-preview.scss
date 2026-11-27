@@ -25,156 +25,122 @@
     @media (min-width: 768px) {
       flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
+      gap: 4rem;
     }
   }
 
-  // ── Tabs ────────────────────────────────────────────────
+  // ── Pestañas ───────────────────────────────────────────
   .preview-tabs {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: .75rem;
-    justify-content: center;
+    flex-direction: column;
+    gap: .6rem;
+    width: 100%;
+    max-width: 340px;
 
     @media (min-width: 768px) {
-      flex-direction: column;
-      justify-content: flex-start;
+      align-self: center;
+    }
+
+    /* Celular: cuadrícula 2×2 compacta para que el teléfono quede a la vista */
+    @media (max-width: 767.98px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .5rem;
+
+      .tab-btn {
+        padding: .6rem .7rem;
+        gap: .6rem;
+
+        > i { width: 1.9rem; height: 1.9rem; font-size: .95rem; }
+      }
+
+      .tab-desc { display: none; }
     }
   }
 
   .tab-btn {
     display: flex;
     align-items: center;
-    gap: .6rem;
-    background: var(--color-surface);
-    border: 1.5px solid var(--color-border);
-    border-radius: .75rem;
-    color: var(--color-text-muted);
-    padding: .65rem 1.1rem;
-    font-size: .9rem;
-    font-weight: 500;
+    gap: .9rem;
+    width: 100%;
+    padding: .85rem 1rem;
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, .03);
+    color: rgba(255, 255, 255, .75);
+    text-align: left;
     cursor: pointer;
-    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    min-width: 140px;
-    will-change: transform, background;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
 
-    i { font-size: 1rem; }
+    > i {
+      flex-shrink: 0;
+      width: 2.25rem;
+      height: 2.25rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: .7rem;
+      background: rgba(255, 255, 255, .06);
+      font-size: 1.05rem;
+      transition: background-color .2s ease, color .2s ease;
+    }
 
-    &:hover {
-      background: rgba(108, 99, 255, 0.08);
-      transform: translateX(4px);
+    .tab-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .tab-label {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tab-desc {
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .55);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: rgba(255, 255, 255, .06);
+        border-color: rgba(255, 255, 255, .18);
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
     }
 
     &.active {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: var(--color-text-on-primary);
-      box-shadow: 0 4px 16px rgba(108, 99, 255, .25);
-      transform: translateX(6px);
+      background: rgba(108, 99, 255, .16);
+      border-color: rgba(140, 130, 255, .55);
+
+      > i {
+        background: var(--color-primary);
+        color: #fff;
+      }
     }
   }
 
-  // ── Phone ───────────────────────────────────────────────
+  // ── Dispositivo ─────────────────────────────────────────
   .phone-wrapper {
     display: flex;
     justify-content: center;
-  }
 
-  .phone-frame {
-    width: 260px;
-    height: 500px;
-    background: var(--color-bg-dark);
-    border-radius: 2.5rem;
-    padding: 1.25rem .9rem;
-    box-shadow:
-      0 30px 80px rgba(0,0,0,.5),
-      0 0 0 6px rgba(0,0,0,.06);
-    will-change: transform, opacity;
-  }
-
-  .phone-screen {
-    background: var(--color-surface);
-    border-radius: 1.5rem;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: .75rem;
-    overflow: hidden;
-  }
-
-  .screen-header {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    padding-bottom: .5rem;
-    border-bottom: 1px solid var(--color-border);
-
-    > i {
-      font-size: 1.4rem;
-      color: var(--color-primary);
-    }
-
-    .screen-label {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--color-text);
-    }
-
-    .screen-desc {
-      font-size: .75rem;
-      color: var(--color-text-muted);
+    @media (max-width: 767.98px) {
+      .device { width: 260px; }
     }
   }
 
-  .screen-tasks {
-    display: flex;
-    flex-direction: column;
-    gap: .45rem;
-    flex: 1;
-  }
+  .phone-frame .device-screen img {
+    opacity: 0;
+    transition: opacity .3s ease;
 
-  .screen-task {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    font-size: .82rem;
-    color: var(--color-text);
-    padding: .45rem .6rem;
-    background: var(--color-surface);
-    border-radius: .5rem;
-
-    i { color: var(--color-text-muted); font-size: .95rem; }
-
-    &.done {
-      color: var(--color-text-muted);
-      text-decoration: line-through;
-      i { color: var(--accent); }
+    &.visible {
+      opacity: 1;
     }
-  }
-
-  .screen-footer {
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
-  }
-
-  .footer-label {
-    font-size: .75rem;
-    color: var(--color-text-muted);
-  }
-
-  .mini-progress {
-    height: 5px;
-    background: var(--color-border);
-    border-radius: 3px;
-    overflow: hidden;
-  }
-
-  .mini-fill {
-    height: 100%;
-    background: var(--color-primary);
-    border-radius: 3px;
-    transition: width .4s ease;
   }
